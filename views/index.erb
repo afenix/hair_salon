@@ -1,5 +1,6 @@
 <h3 class="text-center"> Welcome beloved hair salon owner</h3>
-
+<br>
+<br>
 <div class="row">
   <div class="col-xs-6">
     <h4>What stylist would you like to add today?</h4>
@@ -16,7 +17,7 @@
     <div class="col-xs-6">
       <h4>Here is a list of the stylists you've added thus far:</h4>
       <% if @stylists.any?() %>
-      <p>Click on a stylist to see what clients they currently have and to add more:</p>
+      <p>Click on a stylist to see what clients they currently have:</p>
       <ul>
         <% @stylists.each() do |stylist| %>
         <li><a href = "/stylist/<%= stylist.id() %>"><%= stylist.name() %></a></li>
