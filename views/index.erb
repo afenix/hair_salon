@@ -1,0 +1,29 @@
+<h3 class="text-center"> Welcome beloved hair salon owner</h3>
+
+<div class="row">
+  <div class="col-xs-6">
+    <h4>What stylist would you like to add today?</h4>
+    <form action="/stylist" method = "post">
+      <div class="form-group">
+        <label for="name">Enter the name of the stylist (new or existing)</label>
+        <input id="name" name="name" class="form-control" type="text">
+      </div>
+      <button type="submit" class="btn btn-success">Add Stylist</button>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>Here is a list of the stylists you've added thus far:</h4>
+      <% if @stylists.any?() %>
+      <p>Click on a stylist to see what clients they currently have and to add more:</p>
+      <ul>
+        <% @stylists.each() do |stylist| %>
+        <li><a href = "/stylist/<%= stylist.id() %>"><%= stylist.name() %></a></li>
+        <% end %>
+      </ul>
+      <% else %>
+      <p>Hmmm, apparently you haven't hired anyone yet.</p>
+      <% end %>
+    </div>
+  </div>

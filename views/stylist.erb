@@ -1,0 +1,27 @@
+<h3>Below you can add or review the current clients for <strong><%= @stylist.name() %></strong></h3>
+<div class = "col-md-6">
+  <form action="/clients" method = "post">
+    <input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
+    <label for="name">Enter the name of the client for <strong><%= @stylist.name() %> </strong> that you would like to add today:</label>
+    <input id="name" name="name" class="form-control" type="text">
+    <br>
+    <button type="submit" class="btn btn-success">Add Client</button>
+  </form>
+  <br>
+  <br>
+  <a href = "/" > Return to the main page </a>
+</div>
+
+<div class = "col-md-6">
+  <h4><%= @stylist.name() %>'s clients:</h4>
+  <% if @stylist.clients().any?() %>
+  <ul>
+    <% @stylist.clients().each() do |client| %>
+    <li> <%= client.name() %> </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>Well snap. It looks like this stylist is on a hiatus.</p>
+  <% end %>
+</div>
+<br>
